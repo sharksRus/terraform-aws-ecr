@@ -15,6 +15,8 @@ No requirements.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| life\_cycle\_policy\_days | The humber of days to hold untagged images | `number` | `90` | no |
+| life\_cycle\_policy\_tagstatus | The status of the image tag | `string` | `"untagged"` | no |
 | repo\_name | Name of your ECR Repo | `any` | n/a | yes |
 | scan\_on\_push | Enable vulnerability scanning on ECR repo | `bool` | `true` | no |
 
