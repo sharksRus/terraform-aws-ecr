@@ -47,7 +47,6 @@ EOF
 }
 
 resource "aws_ecr_repository_policy" "policy" {
-  count      = var.all_account_access ? 1 : 0
   repository = aws_ecr_repository.repo.name
   policy     = data.aws_iam_policy_document.repo_policy.json
 
