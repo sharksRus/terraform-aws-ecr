@@ -1,3 +1,27 @@
+data "aws_iam_policy_document" "repo_policy" {
+  statement {
+    sid = "AcctPull"
+
+    actions = [
+      "ecr:BatchCheckLayerAvailability",
+      "ecr:BatchGetImage",
+      "ecr:DescribeImages",
+      "ecr:DescribeRepositories",
+      "ecr:GetAuthorizationToken",
+      "ecr:GetDownloadUrlForLayer",
+      "ecr:GetRepositoryPolicy",
+      "ecr:ListImages",
+    ]
+
+    principals {
+      type        = "AWS"
+      identifiers = var.principals_pull_access
+    }
+
+    effect = "Allow"
+  }
+}
+
 resource "aws_ecr_lifecycle_policy" "repo_lifecycle" {
   repository = aws_ecr_repository.repo.name
 
@@ -20,4 +44,11 @@ resource "aws_ecr_lifecycle_policy" "repo_lifecycle" {
     ]
 }
 EOF
+}
+
+resource "aws_ecr_repository_policy" "policy" {
+  count      = var.all_account_access ? 1 : 0
+  repository = aws_ecr_repository.repo.name
+  policy     = data.aws_iam_policy_document.repo_policy.json
+
 }
