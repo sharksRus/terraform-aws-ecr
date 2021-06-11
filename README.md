@@ -33,9 +33,10 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_app"></a> [app](#input\_app) | Application | `string` | `"ecr"` | no |
 | <a name="input_buildmethod"></a> [buildmethod](#input\_buildmethod) | IaC used | `string` | `"terraform"` | no |
-| <a name="input_enable_kms"></a> [enable\_kms](#input\_enable\_kms) | True for KMS, false for AES256 | `bool` | `false` | no |
+| <a name="input_encryption_configuration"></a> [encryption\_configuration](#input\_encryption\_configuration) | ECR encryption configuration | <pre>object({<br>    encryption_type = string<br>    kms_key         = any<br>  })</pre> | `null` | no |
 | <a name="input_encryption_type"></a> [encryption\_type](#input\_encryption\_type) | Type of encryption for the repository | `string` | `"AES256"` | no |
 | <a name="input_env"></a> [env](#input\_env) | n/a | `string` | `""` | no |
+| <a name="input_external_accounts_policy"></a> [external\_accounts\_policy](#input\_external\_accounts\_policy) | Set to true and added accounts to principals\_pull\_access | `bool` | `false` | no |
 | <a name="input_kms_key_arn"></a> [kms\_key\_arn](#input\_kms\_key\_arn) | The arn of the kms key is not using default of AES256 | `string` | `""` | no |
 | <a name="input_life_cycle_policy_days"></a> [life\_cycle\_policy\_days](#input\_life\_cycle\_policy\_days) | The humber of days to hold untagged images | `number` | `90` | no |
 | <a name="input_life_cycle_policy_tagstatus"></a> [life\_cycle\_policy\_tagstatus](#input\_life\_cycle\_policy\_tagstatus) | The status of the image tag | `string` | `"untagged"` | no |
@@ -44,6 +45,7 @@ No modules.
 | <a name="input_principals_pull_access"></a> [principals\_pull\_access](#input\_principals\_pull\_access) | Principal ARNs to provide with pull access to the ECR | `list(string)` | `[]` | no |
 | <a name="input_repo_name"></a> [repo\_name](#input\_repo\_name) | Name of your ECR Repo | `any` | n/a | yes |
 | <a name="input_scan_on_push"></a> [scan\_on\_push](#input\_scan\_on\_push) | Enable vulnerability scanning on ECR repo | `bool` | `true` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | n/a | `any` | `[]` | no |
 | <a name="input_technicalcontact"></a> [technicalcontact](#input\_technicalcontact) | Repository Technical Contact Email | `string` | `"me@example.com"` | no |
 
 ## Outputs
