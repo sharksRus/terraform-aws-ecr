@@ -9,5 +9,5 @@ resource "aws_ecr_repository" "repo" {
     scan_on_push = var.scan_on_push
   }
   image_tag_mutability = "MUTABLE" #tfsec:ignore:AWS078
-  tags                 = var.tags
+  tags                 = merge(local.defaultTags, tomap({ "Name" = "${var.repo_name}" }))
 }
