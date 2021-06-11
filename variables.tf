@@ -6,10 +6,13 @@ variable "buildmethod" {
   description = "IaC used"
   default     = "terraform"
 }
-variable "enable_kms" {
-  type        = bool
-  description = "True for KMS, false for AES256"
-  default     = false
+variable "encryption_configuration" {
+  type = object({
+    encryption_type = string
+    kms_key         = any
+  })
+  description = "ECR encryption configuration"
+  default     = null
 }
 variable "env" {
   default = ""
@@ -17,6 +20,11 @@ variable "env" {
 variable "encryption_type" {
   description = "Type of encryption for the repository"
   default     = "AES256"
+}
+variable "external_accounts_policy" {
+  type = bool
+  description = "Set to true and added accounts to principals_pull_access"
+  default = false
 }
 variable "kms_key_arn" {
   description = "The arn of the kms key is not using default of AES256"
@@ -49,6 +57,10 @@ variable "repo_name" {
 variable "scan_on_push" {
   description = "Enable vulnerability scanning on ECR repo"
   default     = true
+}
+variable "tags" {
+  type = any
+  default = []
 }
 variable "technicalcontact" {
   description = "Repository Technical Contact Email"
