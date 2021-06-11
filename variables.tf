@@ -1,7 +1,18 @@
+variable "app" {
+  description = "Application"
+  default     = "ecr"
+}
+variable "buildmethod" {
+  description = "IaC used"
+  default     = "terraform"
+}
 variable "enable_kms" {
   type        = bool
   description = "True for KMS, false for AES256"
   default     = false
+}
+variable "env" {
+  default = ""
 }
 variable "encryption_type" {
   description = "Type of encryption for the repository"
@@ -19,6 +30,14 @@ variable "life_cycle_policy_tagstatus" {
   description = "The status of the image tag"
   default     = "untagged"
 }
+variable "org" {
+  description = "Namme used for the tag keys"
+  default     = "my_org"
+}
+variable "owner" {
+  description = "Repository Owner"
+  default     = ""
+}
 variable "principals_pull_access" {
   type        = list(string)
   description = "Principal ARNs to provide with pull access to the ECR"
@@ -30,4 +49,8 @@ variable "repo_name" {
 variable "scan_on_push" {
   description = "Enable vulnerability scanning on ECR repo"
   default     = true
+}
+variable "technicalcontact" {
+  description = "Repository Technical Contact Email"
+  default     = "me@example.com"
 }
