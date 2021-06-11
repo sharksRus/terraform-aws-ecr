@@ -22,9 +22,9 @@ variable "encryption_type" {
   default     = "AES256"
 }
 variable "external_accounts_policy" {
-  type = bool
+  type        = bool
   description = "Set to true and added accounts to principals_pull_access"
-  default = false
+  default     = false
 }
 variable "kms_key_arn" {
   description = "The arn of the kms key is not using default of AES256"
@@ -59,7 +59,7 @@ variable "scan_on_push" {
   default     = true
 }
 variable "tags" {
-  type = any
+  type    = any
   default = []
 }
 variable "technicalcontact" {
