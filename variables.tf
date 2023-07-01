@@ -31,8 +31,8 @@ variable "external_accounts_policy" {
   default     = false
 }
 variable "force_delete" {
-  type         = bool
-  default      = true
+  type        = bool
+  default     = true
   description = "will delete the repository even if it contains images, set to false to disable"
 }
 variable "kms_key_arn" {
@@ -73,6 +73,10 @@ variable "scan_on_push" {
   type        = bool
   description = "Enable vulnerability scanning on ECR repo"
   default     = true
+}
+variable "tags" {
+  type    = any
+  default = []
 }
 variable "technicalcontact" {
   type        = string
