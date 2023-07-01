@@ -18,7 +18,7 @@ jobs:
       - name: 'Checkout GitHub actions repo'
         uses: 'actions/checkout@v2'
         with:
-          repository: 'sharksRus/gha'
+          repository: 'sharksRus/github-actions'
           path: '.github/actions'
           ref: 'main'
       - name: 'running terraform-fmt'
@@ -32,7 +32,7 @@ jobs:
       - name: 'Checkout GitHub actions repo'
         uses: 'actions/checkout@v2'
         with:
-          repository: 'sharksRus/gha'
+          repository: 'sharksRus/github-actions'
           path: '.github/actions'
           ref: 'main'
       - name: 'running tfsec'
@@ -46,7 +46,7 @@ jobs:
       - name: 'Checkout GitHub actions repo'
         uses: 'actions/checkout@v2'
         with:
-          repository: 'sharksRus/gha'
+          repository: 'sharksRus/github-actions'
           path: '.github/actions'
           ref: 'main'
       - name: 'running tflint'
