@@ -33,7 +33,7 @@ variable "external_accounts_policy" {
 variable "force_delete" {
   type         = bool
   default      = true
-  desscription = "will delete the repository even if it contains images, set to false to disable"
+  description = "will delete the repository even if it contains images, set to false to disable"
 }
 variable "kms_key_arn" {
   type        = string
