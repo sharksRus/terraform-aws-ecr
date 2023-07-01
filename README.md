@@ -1,4 +1,5 @@
 # terraform-aws-ecr
+
 [![CI](https://github.com/sharksRus/terraform-aws-ecr/actions/workflows/ci.yaml/badge.svg)](https://github.com/sharksRus/terraform-aws-ecr/actions/workflows/ci.yaml)
 
 ## Requirements
@@ -37,6 +38,7 @@ No modules.
 | <a name="input_encryption_type"></a> [encryption\_type](#input\_encryption\_type) | Type of encryption for the repository | `string` | `"AES256"` | no |
 | <a name="input_env"></a> [env](#input\_env) | n/a | `string` | `""` | no |
 | <a name="input_external_accounts_policy"></a> [external\_accounts\_policy](#input\_external\_accounts\_policy) | Set to true and added accounts to principals\_pull\_access | `bool` | `false` | no |
+| <a name="input_force_delete"></a> [force\_delete](#input\_force\_delete) | n/a | `bool` | `true` | no |
 | <a name="input_kms_key_arn"></a> [kms\_key\_arn](#input\_kms\_key\_arn) | The arn of the kms key is not using default of AES256 | `string` | `""` | no |
 | <a name="input_life_cycle_policy_days"></a> [life\_cycle\_policy\_days](#input\_life\_cycle\_policy\_days) | The humber of days to hold untagged images | `number` | `90` | no |
 | <a name="input_life_cycle_policy_tagstatus"></a> [life\_cycle\_policy\_tagstatus](#input\_life\_cycle\_policy\_tagstatus) | The status of the image tag | `string` | `"untagged"` | no |

@@ -1,5 +1,6 @@
 resource "aws_ecr_repository" "repo" {
-  name = var.repo_name
+  name         = var.repo_name
+  force_delete = var.force_delete
   dynamic "encryption_configuration" { #tfsec:ignore:AWS093
     for_each = var.encryption_configuration == null ? [] : [var.encryption_configuration]
     content {

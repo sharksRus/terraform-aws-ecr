@@ -26,6 +26,11 @@ variable "external_accounts_policy" {
   description = "Set to true and added accounts to principals_pull_access"
   default     = false
 }
+variable "force_delete" {
+  type         = bool
+  default      = true
+  desscription = "will delete the repository even if it contains images, set to false to disable"
+}
 variable "kms_key_arn" {
   description = "The arn of the kms key is not using default of AES256"
   default     = ""
