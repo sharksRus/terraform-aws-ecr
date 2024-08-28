@@ -1,6 +1,11 @@
 data "aws_iam_policy_document" "repo_policy" {
   statement {
-    sid = "AcctPull"
+    sid    = "OrgROaccess"
+    effect = "Allow"
+    principals {
+      type        = "*"
+      identifiers = ["*"]
+    }
 
     actions = [
       "ecr:BatchCheckLayerAvailability",
@@ -12,13 +17,13 @@ data "aws_iam_policy_document" "repo_policy" {
       "ecr:GetRepositoryPolicy",
       "ecr:ListImages",
     ]
-
-    principals {
-      type        = "AWS"
-      identifiers = var.principals_pull_access
+    condition {
+      test     = "StringLike"
+      variable = "aws:PrincipalOrgID"
+      values = [
+        data.aws_organizations_organization.main.id
+      ]
     }
-
-    effect = "Allow"
   }
 }
 

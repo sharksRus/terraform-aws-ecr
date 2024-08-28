@@ -1,5 +1,5 @@
 locals {
-  defaultTags = {
+  default_tags = {
     "${var.org}:app"         = var.app
     "${var.org}:buildmethod" = var.buildmethod
     "${var.org}:contact"     = var.technicalcontact
